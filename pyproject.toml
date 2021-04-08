@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "intent_detector_service"
+version = "0.1.0"
+description = "Larabot intent detector microservice"
+authors = ["nelsoHolic <nelson.holic@gmail.com>", ]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+fastapi-manage = "^0.8.0"
+fastapi = "^0.63.0"
+fastapi-versioning = "^0.8.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.3"
+mypy = "^0.812"
+flake8 = "^3.9.0"
+pylint = "^2.7.4"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
