@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from fastapi_versioning import VersionedFastAPI
+from fastapi_versioning import VersionedFastAPI  # type: ignore
 
 from intent_detector_service.routes.routers import intents
 

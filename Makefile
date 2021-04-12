@@ -29,5 +29,5 @@ lint: ## linting process
 	@ python -m flake8 ${PROJECT_NAME}
 	@ python -m pylint ${PROJECT_NAME}
 
-mypy: # Check typing
+mypy: ## Check typing
 	@ python -m mypy ${PROJECT_NAME}

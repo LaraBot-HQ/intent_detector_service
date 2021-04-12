@@ -62,6 +62,6 @@ class DetectorFactory:
         self, detector_type: Literal["watson", "luis", "local"]
     ) -> IntentEngineDetector:
         if self.detector_classes.get(detector_type):
-            return self.detector_classes[detector_type]
+            return self.detector_classes[detector_type]()
 
         raise UnknownDetectorError(f"there is not a detector for {detector_type}")

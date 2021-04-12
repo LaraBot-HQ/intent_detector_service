@@ -1,5 +1,5 @@
-from fastapi_versioning import version
 from pydantic import BaseModel
+from fastapi_versioning import version  # type: ignore
 
 from intent_detector_service.routes.routers import intents
 
