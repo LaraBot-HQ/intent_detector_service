@@ -1,4 +1,4 @@
-from typing import Literal, Protocol, TypedDict
+from typing import Literal, Protocol, TypedDict, Type
 
 
 class UnknownDetectorError(Exception):
@@ -52,7 +52,7 @@ class LocalEngineDetector(IntentEngineDetector):
 
 class DetectorFactory:
 
-    detector_classes: dict[str, type[IntentEngineDetector]] = {
+    detector_classes: dict[str, Type[IntentEngineDetector]] = {
         "watson": WatsonEngineDetector,
         "luis": LuisEngineDetector,
         "local": LocalEngineDetector,

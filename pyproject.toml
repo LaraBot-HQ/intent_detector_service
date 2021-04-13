@@ -2,7 +2,7 @@
 name = "intent_detector_service"
 version = "0.1.0"
 description = "Larabot intent detector microservice"
-authors = ["nelsoHolic <nelson.holic@gmail.com>", ]
+authors = ["nelsoHolic <nelson.holic@gmail.com>", "xergioalex <xergioalex@gmail.com>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
@@ -10,6 +10,7 @@ python = "^3.9"
 fastapi-manage = "^0.8.0"
 fastapi = "^0.63.0"
 fastapi-versioning = "^0.8.0"
+spacy = "^3.0.5"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.3"

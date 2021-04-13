@@ -1,0 +1,19 @@
+version: '3.2'
+services:
+  intent-detector-service:
+    container_name: intent-detector-service
+    image: intent-detector-service
+    build:
+      context: .
+    environment:
+      ALLOW_ORIGINS: ".*"
+    ports:
+      - 8000:8000
+    networks:
+      - net
+
+networks:
+  net:
+    ipam:
+      config:
+        - subnet: 192.168.168.0/24
