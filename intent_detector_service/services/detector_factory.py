@@ -1,67 +1,32 @@
-from typing import Literal, Protocol, TypedDict, Type
+from typing import Literal, Type
+
+from intent_detector_service.config import ALLOWED_LANGUAGE_TYPES
+from intent_detector_service.services.base_intent_detector import IntentEngineDetector
+from intent_detector_service.services.local_intent_detector import LocalEngineDetector
+from intent_detector_service.services.luis_engine_detector import LuisEngineDetector
+from intent_detector_service.services.watson_engine_detector import WatsonEngineDetector
 
 
 class UnknownDetectorError(Exception):
     pass
 
 
-class IntentDictionary(TypedDict):
-    intent: str
-    entities: list[str]
-
-
-class IntentEngineDetector(Protocol):
-    NAME: str
-
-    def detect_intention(
-        self, user_message: str, actions: list[str]
-    ) -> IntentDictionary:
-        ...
-
-
-class WatsonEngineDetector(IntentEngineDetector):
-    NAME = "watson"
-
-    def detect_intention(
-        self, user_message: str, actions: list[str]
-    ) -> IntentDictionary:
-        return {"intent": "", "entities": []}
-
-
-class LuisEngineDetector(IntentEngineDetector):
-    NAME = "luis"
-
-    def detect_intention(
-        self, user_message: str, actions: list[str]
-    ) -> IntentDictionary:
-        return {"intent": "", "entities": []}
-
-
-class LocalEngineDetector(IntentEngineDetector):
-    """
-    This is the intent detector for local working using spacy and NLTK
-    """
-
-    NAME = "local"
-
-    def detect_intention(
-        self, user_message: str, actions: list[str]
-    ) -> IntentDictionary:
-        return {"intent": "", "entities": []}
+ALLOWED_ENGINE_TYPES = Literal["watson", "luis", "local"]
 
 
 class DetectorFactory:
 
-    detector_classes: dict[str, Type[IntentEngineDetector]] = {
+    detector_classes: dict[ALLOWED_ENGINE_TYPES, Type[IntentEngineDetector]] = {
         "watson": WatsonEngineDetector,
         "luis": LuisEngineDetector,
         "local": LocalEngineDetector,
     }
 
+    @classmethod
     def construct_detector(
-        self, detector_type: Literal["watson", "luis", "local"]
+        cls, language: ALLOWED_LANGUAGE_TYPES, detector_type: Literal["watson", "luis", "local"]
     ) -> IntentEngineDetector:
-        if self.detector_classes.get(detector_type):
-            return self.detector_classes[detector_type]()
+        if cls.detector_classes.get(detector_type):
+            return cls.detector_classes[detector_type](language)
 
-        raise UnknownDetectorError(f"there is not a detector for {detector_type}")
+        raise UnknownDetectorError(f"there is not a detector engine for {detector_type}")

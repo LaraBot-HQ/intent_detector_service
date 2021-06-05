@@ -9,18 +9,18 @@ list:
 git-changes:
 	@ git diff ${BASE_BRANCH} --diff-filter=ACMR --name-only | (grep -E '.py$$' || true) | tr '\n' ' '
 
-tidy:  ## Tidy (autoflake, isort, black) files modified relative to `origin/main`
+format:  ## Format (autoflake, isort, black) files modified relative to `origin/main`
 	@ ( \
 		export MODIFIED="$$(BASE_BRANCH=origin/main $(MAKE) -s git-changes)" && \
-		if [ -z "$${MODIFIED}" ]; then echo "No files changed – no need to tidy"; exit; fi && \
-		echo "Tidying python files:\n\n$${MODIFIED}\n" && \
-		$(MAKE) tidy-all \
+		if [ -z "$${MODIFIED}" ]; then echo "No files changed – no need to format"; exit; fi && \
+		echo "Formatting python files:\n\n$${MODIFIED}\n" && \
+		$(MAKE) format-all \
 	)
 
-tidy-pyupgrade:
+format-pyupgrade:
 	echo $${MODIFIED:-$$(find . -name "*.py")} | xargs python3 -m pyupgrade --py39-plus --exit-zero-even-if-changed
 
-tidy-all: tidy-pyupgrade  ## Tidy all files
+format-all: format-pyupgrade  ## Format all files
 	python3 -m autoflake -r --in-place $${MODIFIED:-.}
 	python3 -m isort --quiet $${MODIFIED:-. -rc}
 	python3 -m black --quiet $${MODIFIED:-.}

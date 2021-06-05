@@ -7,3 +7,7 @@ ping = APIRouter(
 intents = APIRouter(
     prefix="/intents",
 )
+
+auth = APIRouter(
+    prefix="/auth",
+)

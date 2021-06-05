@@ -11,6 +11,11 @@ fastapi-manage = "^0.8.0"
 fastapi = "^0.63.0"
 fastapi-versioning = "^0.8.0"
 spacy = "^3.0.5"
+nltk = "^3.6.2"
+passlib = {extras = ["bcrypt"], version = "^1.7.4"}
+bcrypt = "^3.2.0"
+python-dotenv = {extras = ["cli"], version = "^0.17.1"}
+transformers = "^4.6.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.3"

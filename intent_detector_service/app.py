@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi_versioning import VersionedFastAPI  # type: ignore
 
 from intent_detector_service.config import ALLOW_ORIGINS
-from intent_detector_service.routes.routers import intents, ping
+from intent_detector_service.routes.routers import intents, ping, auth
 
 app = FastAPI(
     title="Intent detector service",
@@ -21,6 +21,7 @@ app.add_middleware(
 
 app.include_router(ping)
 app.include_router(intents)
+app.include_router(auth)
 
 app = VersionedFastAPI(
     app,
