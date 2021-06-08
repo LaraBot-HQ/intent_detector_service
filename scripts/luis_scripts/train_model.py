@@ -4,7 +4,7 @@ import time
 from azure.cognitiveservices.language.luis.authoring import LUISAuthoringClient
 from msrest.authentication import CognitiveServicesCredentials
 
-from intent_detector_service.config import LUIS_LANGUAGE_APPS, AUTHORING_KEY
+from intent_detector_service.config import LUIS_LANGUAGE_APPS, AUTHORING_KEY, AUTHORING_ENDPOINT
 
 app_id = LUIS_LANGUAGE_APPS.get("english")
 versionId = "0.1"
@@ -16,7 +16,7 @@ if not AUTHORING_KEY:
     raise Exception("Missing AUTHORING_KEY")
 
 client = LUISAuthoringClient(
-    'https://westus.api.cognitive.microsoft.com',
+    AUTHORING_ENDPOINT,
     CognitiveServicesCredentials(AUTHORING_KEY),
 )
 
@@ -29,7 +29,7 @@ with open('scripts/luis_scripts/en_train_data.json') as json_file:
     data = json.load(json_file)
 
 
-try:  # try to add intents if they are not already added
+try:  # try to add entities/intents if they are not already added
     # add intents to app
     for intent in data["intent_list"]:
         modelId = client.model.add_intent(app_id, versionId, intent)
@@ -39,14 +39,6 @@ try:  # try to add intents if they are not already added
         modelId = client.model.add_entity(app_id, versionId, name=entity["name"])
 except Exception:
     pass
-
-# define phraselist - add phrases as significant vocabulary to app
-phraseList = {
-    "enabledForAllModels": False,
-    "isExchangeable": True,
-    "name": "QuantityPhraselist",
-    "phrases": "few,more,extra"
-}
 
 client.examples.batch(app_id, versionId, data["example_utterances"], {"enableNestedChildren": False})
 

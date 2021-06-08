@@ -62,9 +62,9 @@ class LocalEngineDetector(IntentEngineDetector):
     def detect_intention(
         self, user_message: str, actions: list[ActionObject]
     ) -> IntentDictionary:
-        user_message = self.process_text(user_message)
+        processed_user_message = self.process_text(user_message)
         similarity_list: list[SimilarityObject] = []
-        message_doc = self.nlp(user_message)
+        message_doc = self.nlp(processed_user_message)
 
         for i, action_object in enumerate(actions):
             action = action_object.action

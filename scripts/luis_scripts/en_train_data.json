@@ -30,7 +30,178 @@
       ]
     },
     {
-      "text": "play guns and roses.",
+      "text": "Play music",
+      "intentName": "PlayMusic",
+      "entityLabels": []
+    },
+    {
+      "text": "Play any song",
+      "intentName": "PlayMusic",
+      "entityLabels": []
+    },
+    {
+      "text": "Play flute songs",
+      "intentName": "PlayMusic",
+      "entityLabels": [
+          {
+              "startCharIndex": 4,
+              "endCharIndex": 15,
+              "entityName": "Music",
+              "children": []
+          }
+      ]
+    },
+    {
+      "text": "Play guitar hero tracks",
+      "intentName": "PlayMusic",
+      "entityLabels": [
+          {
+              "startCharIndex": 4,
+              "endCharIndex": 22,
+              "entityName": "Music",
+              "children": []
+          }
+      ]
+    },
+    {
+      "text": "Can you play jumanji track?",
+      "intentName": "PlayMusic",
+      "entityLabels": [
+          {
+              "startCharIndex": 12,
+              "endCharIndex": 25,
+              "entityName": "Music",
+              "children": []
+          }
+      ]
+    },
+    {
+      "text": "Play nintendo music",
+      "intentName": "PlayMusic",
+      "entityLabels": [
+          {
+              "startCharIndex": 5,
+              "endCharIndex": 14,
+              "entityName": "Music",
+              "children": []
+          }
+      ]
+    },
+    {
+      "text": "Can you play music?",
+      "intentName": "PlayMusic",
+      "entityLabels": []
+    },
+    {
+      "text": "Can you play rap music?",
+      "intentName": "PlayMusic",
+      "entityLabels": [
+          {
+              "startCharIndex": 12,
+              "endCharIndex": 21,
+              "entityName": "Music",
+              "children": []
+          }
+      ]
+    },
+    {
+      "text": "Can you put rap music?",
+      "intentName": "PlayMusic",
+      "entityLabels": [
+          {
+              "startCharIndex": 11,
+              "endCharIndex": 20,
+              "entityName": "Music",
+              "children": []
+          }
+      ]
+    },
+    {
+      "text": "Do you know hip hop songs?",
+      "intentName": "PlayMusic",
+      "entityLabels": [
+          {
+              "startCharIndex": 12,
+              "endCharIndex": 25,
+              "entityName": "Music",
+              "children": []
+          }
+      ]
+    },
+    {
+      "text": "Please play any Eminem's album",
+      "intentName": "PlayMusic",
+      "entityLabels": [
+          {
+              "startCharIndex": 16,
+              "endCharIndex": 30,
+              "entityName": "Music",
+              "children": []
+          }
+      ]
+    },
+    {
+      "text": "I would like to hear Rhianna's new album",
+      "intentName": "PlayMusic",
+      "entityLabels": [
+          {
+              "startCharIndex": 20,
+              "endCharIndex": 39,
+              "entityName": "Music",
+              "children": []
+          }
+      ]
+    },
+    {
+      "text": "I wanna listen linking park music",
+      "intentName": "PlayMusic",
+      "entityLabels": [
+          {
+              "startCharIndex": 15,
+              "endCharIndex": 33,
+              "entityName": "Music",
+              "children": []
+          }
+      ]
+    },
+    {
+      "text": "I want to listen linking park music",
+      "intentName": "PlayMusic",
+      "entityLabels": [
+          {
+              "startCharIndex": 16,
+              "endCharIndex": 34,
+              "entityName": "Music",
+              "children": []
+          }
+      ]
+    },
+    {
+      "text": "I want to hear linking park music",
+      "intentName": "PlayMusic",
+      "entityLabels": [
+          {
+              "startCharIndex": 15,
+              "endCharIndex": 33,
+              "entityName": "Music",
+              "children": []
+          }
+      ]
+    },
+    {
+      "text": "Play anime soundtracks",
+      "intentName": "PlayMusic",
+      "entityLabels": [
+          {
+              "startCharIndex": 4,
+              "endCharIndex": 21,
+              "entityName": "Music",
+              "children": []
+          }
+      ]
+    },
+    {
+      "text": "Play guns and roses",
       "intentName": "PlayMusic",
       "entityLabels": [
           {
@@ -48,6 +219,18 @@
           {
               "startCharIndex": 12,
               "endCharIndex": 42,
+              "entityName": "Music",
+              "children": []
+          }
+      ]
+    },
+    {
+      "text": "I want to hear uptown girl of billy joe",
+      "intentName": "PlayMusic",
+      "entityLabels": [
+          {
+              "startCharIndex": 15,
+              "endCharIndex": 38,
               "entityName": "Music",
               "children": []
           }
@@ -114,6 +297,11 @@
       ]
     },
     {
+      "text": "turn on the music",
+      "intentName": "PlayMusic",
+      "entityLabels": []
+    },
+    {
       "text": "give me a list of films to watch",
       "intentName": "ShowMovies",
       "entityLabels": []
@@ -148,12 +336,36 @@
       ]
     },
     {
-      "text": "show me a Warner bros films",
+      "text": "give me a list of movies from tarantino's filmography",
       "intentName": "ShowMovies",
       "entityLabels": [
           {
-              "startCharIndex": 9,
-              "endCharIndex": 21,
+              "startCharIndex": 29,
+              "endCharIndex": 52,
+              "entityName": "Movie",
+              "children": []
+          }
+      ]
+    },
+    {
+      "text": "Put anime movies",
+      "intentName": "ShowMovies",
+      "entityLabels": [
+          {
+              "startCharIndex": 3,
+              "endCharIndex": 15,
+              "entityName": "Movie",
+              "children": []
+          }
+      ]
+    },
+    {
+      "text": "play disney princess movies",
+      "intentName": "ShowMovies",
+      "entityLabels": [
+          {
+              "startCharIndex": 4,
+              "endCharIndex": 26,
               "entityName": "Movie",
               "children": []
           }
@@ -166,6 +378,90 @@
           {
               "startCharIndex": 13,
               "endCharIndex": 22,
+              "entityName": "Movie",
+              "children": []
+          }
+      ]
+    },
+    {
+      "text": "I want to see star wars filmography",
+      "intentName": "ShowMovies",
+      "entityLabels": [
+          {
+              "startCharIndex": 13,
+              "endCharIndex": 22,
+              "entityName": "Movie",
+              "children": []
+          }
+      ]
+    },
+    {
+      "text": "I would like to see a long movie",
+      "intentName": "ShowMovies",
+      "entityLabels": [
+          {
+              "startCharIndex": 20,
+              "endCharIndex": 32,
+              "entityName": "Movie",
+              "children": []
+          }
+      ]
+    },
+    {
+      "text": "Show me the last marvel studios movies",
+      "intentName": "ShowMovies",
+      "entityLabels": [
+          {
+              "startCharIndex": 16,
+              "endCharIndex": 37,
+              "entityName": "Movie",
+              "children": []
+          }
+      ]
+    },
+    {
+      "text": "I want to watch a movie from an important studio",
+      "intentName": "ShowMovies",
+      "entityLabels": [
+          {
+              "startCharIndex": 18,
+              "endCharIndex": 48,
+              "entityName": "Movie",
+              "children": []
+          }
+      ]
+    },
+    {
+      "text": "I want to see a scary movie",
+      "intentName": "ShowMovies",
+      "entityLabels": [
+          {
+              "startCharIndex": 15,
+              "endCharIndex": 26,
+              "entityName": "Movie",
+              "children": []
+          }
+      ]
+    },
+    {
+      "text": "Show me any terror movie",
+      "intentName": "ShowMovies",
+      "entityLabels": [
+          {
+              "startCharIndex": 12,
+              "endCharIndex": 24,
+              "entityName": "Movie",
+              "children": []
+          }
+      ]
+    },
+    {
+      "text": "Show harry potter saga",
+      "intentName": "ShowMovies",
+      "entityLabels": [
+          {
+              "startCharIndex": 4,
+              "endCharIndex": 21,
               "entityName": "Movie",
               "children": []
           }
@@ -185,6 +481,11 @@
     },
     {
       "text": "Tell me a joke",
+      "intentName": "TellAJoke",
+      "entityLabels": []
+    },
+    {
+      "text": "Tell a joke",
       "intentName": "TellAJoke",
       "entityLabels": []
     },
@@ -230,6 +531,21 @@
     },
     {
       "text": "Say something like a joke to me",
+      "intentName": "TellAJoke",
+      "entityLabels": []
+    },
+    {
+      "text": "I want to laugh",
+      "intentName": "TellAJoke",
+      "entityLabels": []
+    },
+    {
+      "text": "I am bored",
+      "intentName": "TellAJoke",
+      "entityLabels": []
+    },
+    {
+      "text": "Cheer me up",
       "intentName": "TellAJoke",
       "entityLabels": []
     },
@@ -284,7 +600,17 @@
       "entityLabels": []
     },
     {
+      "text": "list of commands",
+      "intentName": "ShowCommandsList",
+      "entityLabels": []
+    },
+    {
       "text": "What can I do?",
+      "intentName": "ShowCommandsList",
+      "entityLabels": []
+    },
+    {
+      "text": "What can we do?",
       "intentName": "ShowCommandsList",
       "entityLabels": []
     },
@@ -294,7 +620,37 @@
       "entityLabels": []
     },
     {
+      "text": "I need help",
+      "intentName": "ShowCommandsList",
+      "entityLabels": []
+    },
+    {
+      "text": "Can you help me?",
+      "intentName": "ShowCommandsList",
+      "entityLabels": []
+    },
+    {
+      "text": "I'm lost",
+      "intentName": "ShowCommandsList",
+      "entityLabels": []
+    },
+    {
+      "text": "I don't know what to do",
+      "intentName": "ShowCommandsList",
+      "entityLabels": []
+    },
+    {
       "text": "Which are the available commands?",
+      "intentName": "ShowCommandsList",
+      "entityLabels": []
+    },
+    {
+      "text": "Commands",
+      "intentName": "ShowCommandsList",
+      "entityLabels": []
+    },
+    {
+      "text": "Options",
       "intentName": "ShowCommandsList",
       "entityLabels": []
     }
