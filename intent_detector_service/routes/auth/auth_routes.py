@@ -1,12 +1,24 @@
 from datetime import timedelta
+from typing import Optional
+
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
 
 from intent_detector_service.routes.routers import auth
 from intent_detector_service.services.oauth import (
     authenticate_user, fake_users_db, Token, ACCESS_TOKEN_EXPIRE_MINUTES,
-    create_access_token
+    create_access_token, get_user_by_username, UserPayload, create_user
 )
+
+
+@auth.post("/create_user")
+async def create_user_endpoint(user_data: UserPayload) -> str:
+    if get_user_by_username(user_data.username):
+        raise HTTPException(status_code=403, detail="That username is already in used")
+
+    create_user(user_data)
+
+    return "success"
 
 
 @auth.post("/token", response_model=Token)

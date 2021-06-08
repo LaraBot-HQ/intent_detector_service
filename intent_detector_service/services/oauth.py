@@ -5,7 +5,7 @@ from fastapi import Depends, FastAPI, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from jose import JWTError, jwt
 from passlib.context import CryptContext
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr
 
 # to get a string like this run:
 # openssl rand -hex 32
@@ -45,11 +45,32 @@ class UserInDB(User):
     hashed_password: str
 
 
+class UserPayload(BaseModel):
+    username: str
+    email: EmailStr
+    full_name: Optional[str]
+    password: str
+
+
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
 app = FastAPI()
+
+
+def get_user_by_username(username) -> Optional[dict]:
+    return fake_users_db.get(username)
+
+
+def create_user(user_payload: UserPayload):
+    fake_users_db[user_payload.username] = {
+        "username": user_payload.username,
+        "full_name": user_payload.full_name,
+        "email": user_payload.email,
+        "hashed_password": get_password_hash(user_payload.password),
+        "disabled": False,
+    }
 
 
 def verify_password(plain_password, hashed_password):
