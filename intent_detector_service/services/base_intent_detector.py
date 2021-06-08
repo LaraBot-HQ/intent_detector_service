@@ -17,7 +17,8 @@ class ExtractedEntityDict(TypedDict):
 
 
 class IntentDictionary(TypedDict):
-    intent: str
+    intent_id: str
+    action: str
     entities: list[ExtractedEntityDict]
     similarity: float
     message: str
@@ -33,9 +34,4 @@ class IntentEngineDetector(Protocol):
     def detect_intention(
         self, user_message: str, actions: list[ActionObject]
     ) -> IntentDictionary:
-        ...
-
-    def extract_entities(
-        self, *args, **kwargs
-    ) -> list[ExtractedEntityDict]:
         ...

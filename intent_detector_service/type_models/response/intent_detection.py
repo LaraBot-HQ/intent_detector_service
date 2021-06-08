@@ -9,7 +9,8 @@ class ExtractedEntity(BaseModel):
 
 
 class IntentResponse(BaseModel):
-    intent: str
+    intent_id: str
+    action: str
     entities: list[ExtractedEntity]
     similarity: float
     message: str

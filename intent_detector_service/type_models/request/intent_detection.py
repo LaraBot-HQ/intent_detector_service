@@ -4,7 +4,7 @@ from pydantic import BaseModel, Field
 
 
 class PatternMatcherObject(BaseModel):
-    id: str = Field(description="Identifier for the match value you want to match, example: TIMES, MUSIC, SONGS, etc")
+    id: str = Field(description="Identifier for the match value you want to match, example: Times, Music, Song, etc")
     patterns: list[dict] = Field(
         description=(
             "Based on your action, give a general match pattern in order to extract entities "
@@ -21,6 +21,9 @@ class PatternMatcherObject(BaseModel):
 
 
 class ActionObject(BaseModel):
+    intent_id: str = Field(
+        description="Plain text with the intent id for the given action, example: intent_id= 'playMusic'"
+    )
     action: str = Field(
         description="Plain text with the action key, example:\n"
                     "Larabot, I would like to hear some adele music"

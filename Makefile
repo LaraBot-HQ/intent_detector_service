@@ -30,4 +30,4 @@ lint: ## linting process
 	@ python -m pylint ${PROJECT_NAME}
 
 mypy: ## Check typing
-	@ python -m mypy ${PROJECT_NAME}
+	@ python -m mypy

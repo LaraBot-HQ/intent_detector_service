@@ -1,0 +1,302 @@
+{
+  "intent_list": [
+    "PlayMusic",
+    "SayHi",
+    "TellAJoke",
+    "ShowMovies",
+    "ShowCommandsList"
+  ],
+  "entities": [
+    {
+    "name": "Music",
+        "children": []
+    },
+    {
+        "name": "Movie",
+        "children": []
+    }
+  ],
+  "example_utterances": [
+    {
+      "text": "I would like to listen some arctic monkeys music",
+      "intentName": "PlayMusic",
+      "entityLabels": [
+          {
+              "startCharIndex": 25,
+              "endCharIndex": 40,
+              "entityName": "Music",
+              "children": []
+          }
+      ]
+    },
+    {
+      "text": "play guns and roses.",
+      "intentName": "PlayMusic",
+      "entityLabels": [
+          {
+              "startCharIndex": 5,
+              "endCharIndex": 19,
+              "entityName": "Music",
+              "children": []
+          }
+      ]
+    },
+    {
+      "text": "I wanna hear complicated of Avril Lavigne",
+      "intentName": "PlayMusic",
+      "entityLabels": [
+          {
+              "startCharIndex": 12,
+              "endCharIndex": 42,
+              "entityName": "Music",
+              "children": []
+          }
+      ]
+    },
+    {
+      "text": "Do you know november's rain of guns and roses?",
+      "intentName": "PlayMusic",
+      "entityLabels": [
+          {
+              "startCharIndex": 11,
+              "endCharIndex": 44,
+              "entityName": "Music",
+              "children": []
+          }
+      ]
+    },
+    {
+      "text": "Can you put some funky music?",
+      "intentName": "PlayMusic",
+      "entityLabels": [
+          {
+              "startCharIndex": 16,
+              "endCharIndex": 27,
+              "entityName": "Music",
+              "children": []
+          }
+      ]
+    },
+    {
+      "text": "I want to listen some video game soundtracks",
+      "intentName": "PlayMusic",
+      "entityLabels": [
+          {
+              "startCharIndex": 19,
+              "endCharIndex": 41,
+              "entityName": "Music",
+              "children": []
+          }
+      ]
+    },
+    {
+      "text": "play some movie tracks",
+      "intentName": "PlayMusic",
+      "entityLabels": [
+          {
+              "startCharIndex": 9,
+              "endCharIndex": 21,
+              "entityName": "Music",
+              "children": []
+          }
+      ]
+    },
+    {
+      "text": "put relaxing music",
+      "intentName": "PlayMusic",
+      "entityLabels": [
+          {
+              "startCharIndex": 19,
+              "endCharIndex": 41,
+              "entityName": "Music",
+              "children": []
+          }
+      ]
+    },
+    {
+      "text": "give me a list of films to watch",
+      "intentName": "ShowMovies",
+      "entityLabels": []
+    },
+    {
+      "text": "give me a list of movies to watch",
+      "intentName": "ShowMovies",
+      "entityLabels": []
+    },
+    {
+      "text": "I want to watch Avatar movies",
+      "intentName": "ShowMovies",
+      "entityLabels": [
+          {
+              "startCharIndex": 15,
+              "endCharIndex": 22,
+              "entityName": "Movie",
+              "children": []
+          }
+      ]
+    },
+    {
+      "text": "give me a list of films from lucas films to watch",
+      "intentName": "ShowMovies",
+      "entityLabels": [
+          {
+              "startCharIndex": 29,
+              "endCharIndex": 40,
+              "entityName": "Movie",
+              "children": []
+          }
+      ]
+    },
+    {
+      "text": "show me a Warner bros films",
+      "intentName": "ShowMovies",
+      "entityLabels": [
+          {
+              "startCharIndex": 9,
+              "endCharIndex": 21,
+              "entityName": "Movie",
+              "children": []
+          }
+      ]
+    },
+    {
+      "text": "I wanna watch star wars filmography",
+      "intentName": "ShowMovies",
+      "entityLabels": [
+          {
+              "startCharIndex": 13,
+              "endCharIndex": 22,
+              "entityName": "Movie",
+              "children": []
+          }
+      ]
+    },
+    {
+      "text": "Can you show me the trailer of the amazing SpiderMan?",
+      "intentName": "ShowMovies",
+      "entityLabels": [
+          {
+              "startCharIndex": 31,
+              "endCharIndex": 51,
+              "entityName": "Movie",
+              "children": []
+          }
+      ]
+    },
+    {
+      "text": "Tell me a joke",
+      "intentName": "TellAJoke",
+      "entityLabels": []
+    },
+    {
+      "text": "Say something funny",
+      "intentName": "TellAJoke",
+      "entityLabels": []
+    },
+    {
+      "text": "Do you know any joke?",
+      "intentName": "TellAJoke",
+      "entityLabels": []
+    },
+    {
+      "text": "What is the funniest thing you can say?",
+      "intentName": "TellAJoke",
+      "entityLabels": []
+    },
+    {
+      "text": "Do you know what a joke is?",
+      "intentName": "TellAJoke",
+      "entityLabels": []
+    },
+    {
+      "text": "you can't tell a joke",
+      "intentName": "TellAJoke",
+      "entityLabels": []
+    },
+    {
+      "text": "Can you make a joke?",
+      "intentName": "TellAJoke",
+      "entityLabels": []
+    },
+    {
+      "text": "Do you know any joke?",
+      "intentName": "TellAJoke",
+      "entityLabels": []
+    },
+    {
+      "text": "Tell me something funny",
+      "intentName": "TellAJoke",
+      "entityLabels": []
+    },
+    {
+      "text": "Say something like a joke to me",
+      "intentName": "TellAJoke",
+      "entityLabels": []
+    },
+    {
+      "text": "Hi",
+      "intentName": "SayHi",
+      "entityLabels": []
+    },
+    {
+      "text": "Hello",
+      "intentName": "SayHi",
+      "entityLabels": []
+    },
+    {
+      "text": "Hey, how are you?",
+      "intentName": "SayHi",
+      "entityLabels": []
+    },
+    {
+      "text": "Good evening",
+      "intentName": "SayHi",
+      "entityLabels": []
+    },
+    {
+      "text": "Good morning",
+      "intentName": "SayHi",
+      "entityLabels": []
+    },
+    {
+      "text": "Greetings",
+      "intentName": "SayHi",
+      "entityLabels": []
+    },
+    {
+      "text": "What can you do?",
+      "intentName": "ShowCommandsList",
+      "entityLabels": []
+    },
+    {
+      "text": "show me your commands",
+      "intentName": "ShowCommandsList",
+      "entityLabels": []
+    },
+    {
+      "text": "What commands can you execute?",
+      "intentName": "ShowCommandsList",
+      "entityLabels": []
+    },
+    {
+      "text": "list of options",
+      "intentName": "ShowCommandsList",
+      "entityLabels": []
+    },
+    {
+      "text": "What can I do?",
+      "intentName": "ShowCommandsList",
+      "entityLabels": []
+    },
+    {
+      "text": "Show me the options",
+      "intentName": "ShowCommandsList",
+      "entityLabels": []
+    },
+    {
+      "text": "Which are the available commands?",
+      "intentName": "ShowCommandsList",
+      "entityLabels": []
+    }
+  ]
+}

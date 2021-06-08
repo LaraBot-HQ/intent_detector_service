@@ -40,6 +40,7 @@ class LocalEngineDetector(IntentEngineDetector):
     NAME = "local"
 
     def __init__(self, lang: ALLOWED_LANGUAGE_TYPES):
+        self.LANG = lang
         super().__init__(lang)
 
         self.nlp = LANGUAGE_DICT_INSTANCE[self.LANG]
@@ -71,14 +72,20 @@ class LocalEngineDetector(IntentEngineDetector):
             similarity_object = SimilarityObject(action_object, action, sentence_1.similarity(message_doc), i)
             similarity_list.append(similarity_object)
 
-        sorted_list = sorted(similarity_list, key=itemgetter(1), reverse=True)
+        sorted_list = sorted(similarity_list, key=itemgetter(2), reverse=True)
 
         intent = sorted_list[0]
 
         # Named entity recognition (NER)
         entities = self.extract_entities(message_doc, intent.action_object.matchers)
 
-        return {"intent": intent.action, "entities": entities, "similarity": intent.similarity, "message": user_message}
+        return {
+            "intent_id": intent.action_object.intent_id,
+            "action": intent.action,
+            "entities": entities,
+            "similarity": intent.similarity,
+            "message": user_message
+        }
 
     def __extract_auto_entities_recognizer(self, message_doc: Doc) -> list[ExtractedEntityDict]:
         return [{"type": e.label_, "value": e.text} for e in message_doc.ents]

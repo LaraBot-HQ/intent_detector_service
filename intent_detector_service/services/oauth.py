@@ -60,10 +60,12 @@ def get_password_hash(password):
     return pwd_context.hash(password)
 
 
-def get_user(db, username: str):
+def get_user(db, username: Optional[str]) -> Optional[UserInDB]:
     if username in db:
         user_dict = db[username]
         return UserInDB(**user_dict)
+
+    return None
 
 
 def authenticate_user(fake_db, username: str, password: str):
