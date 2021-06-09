@@ -6,7 +6,7 @@ from msrest.authentication import CognitiveServicesCredentials
 
 from intent_detector_service.config import LUIS_LANGUAGE_APPS, AUTHORING_KEY, AUTHORING_ENDPOINT
 
-app_id = LUIS_LANGUAGE_APPS.get("english")
+app_id = LUIS_LANGUAGE_APPS.get("spanish")
 versionId = "0.1"
 
 if not app_id:
@@ -25,7 +25,7 @@ client = LUISAuthoringClient(
 
 
 # Opening JSON file
-with open('scripts/luis_scripts/en_train_data.json') as json_file:
+with open('scripts/luis_scripts/es_train_data.json') as json_file:
     data = json.load(json_file)
 
 
@@ -40,7 +40,10 @@ try:  # try to add entities/intents if they are not already added
 except Exception:
     pass
 
-client.examples.batch(app_id, versionId, data["example_utterances"], {"enableNestedChildren": False})
+# there is a limit of 100 for the batch
+for i in range(0, len(data["example_utterances"]), 100):
+    example_utterances = data["example_utterances"][i:i+100]
+    client.examples.batch(app_id, versionId, example_utterances, {"enableNestedChildren": False})
 
 print("\nUtterances added")
 

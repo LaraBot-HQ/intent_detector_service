@@ -2,8 +2,8 @@ import os
 from typing import Final, Literal, Optional
 
 ALLOW_ORIGINS: Final[str] = os.environ.get("ALLOW_ORIGINS", ".*")
-ENGLISH_SPACY_MODEL: Final[str] = os.environ.get("SPACY_MODEL", "en_core_web_lg")
-SPANISH_SPACY_MODEL: Final[str] = os.environ.get("SPACY_MODEL", "es_core_news_lg")
+ENGLISH_SPACY_MODEL: Final[str] = os.environ.get("EN_SPACY_MODEL", "en_core_web_lg")
+SPANISH_SPACY_MODEL: Final[str] = os.environ.get("ES_SPACY_MODEL", "es_core_news_lg")
 
 ALLOWED_LANGUAGES: Final[list[str]] = ["english", "spanish"]
 ALLOWED_LANGUAGE_TYPES = Literal["english", "spanish"]  # alias type
@@ -18,3 +18,8 @@ LUIS_LANGUAGE_APPS: dict[ALLOWED_LANGUAGE_TYPES, Optional[str]] = {
     "english": os.environ.get("EN_PREDICTION_KEY"),
     "spanish": os.environ.get("ES_PREDICTION_KEY")
 }
+
+# Slack config
+SLACK_CLIENT_ID = os.environ.get("SLACK_CLIENT_ID")
+SLACK_CLIENT_SECRET = os.environ.get("SLACK_CLIENT_SECRET")
+SLACK_REDIRECT_URI = os.environ.get("SLACK_REDIRECT_URI")

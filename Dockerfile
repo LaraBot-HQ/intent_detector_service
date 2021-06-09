@@ -12,4 +12,7 @@ RUN poetry config virtualenvs.create false \
 
 COPY intent_detector_service/ /code/intent_detector_service
 
+RUN poetry run python -m spacy download es_core_news_lg
+RUN poetry run python -m spacy download en_core_web_lg
+
 CMD ["poetry", "run", "uvicorn", "intent_detector_service.app:app", "--host", "0.0.0.0", "--port", "80"]

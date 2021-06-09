@@ -18,6 +18,7 @@ python-dotenv = {extras = ["cli"], version = "^0.17.1"}
 transformers = "^4.6.1"
 azure-cognitiveservices-language-luis = "^0.7.0"
 pydantic = {extras = ["email"], version = "^1.7.3"}
+slackclient = "^2.9.3"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.3"

@@ -1,9 +1,10 @@
 from datetime import timedelta
-from typing import Optional
 
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
+from slack import WebClient
 
+from intent_detector_service import config
 from intent_detector_service.routes.routers import auth
 from intent_detector_service.services.oauth import (
     authenticate_user, fake_users_db, Token, ACCESS_TOKEN_EXPIRE_MINUTES,
@@ -17,6 +18,24 @@ async def create_user_endpoint(user_data: UserPayload) -> str:
         raise HTTPException(status_code=403, detail="That username is already in used")
 
     create_user(user_data)
+
+    return "success"
+
+
+@auth.post("/slack/callback", response_model=Token)
+async def login_for_access_token(auth_code: str) -> str:
+    result = WebClient().oauth_v2_access(
+        client_id=config.SLACK_CLIENT_ID,
+        client_secret=config.SLACK_CLIENT_SECRET,
+        code=auth_code,
+        redirect_uri=config.SLACK_REDIRECT_URI
+    )
+
+    authed_user = result["authed_user"]
+
+    fake_users_db[authed_user["id"]] = {
+        "slack_access_token": authed_user["access_token"]
+    }
 
     return "success"
 

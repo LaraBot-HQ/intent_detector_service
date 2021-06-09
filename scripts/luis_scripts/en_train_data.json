@@ -4,7 +4,9 @@
     "SayHi",
     "TellAJoke",
     "ShowMovies",
-    "ShowCommandsList"
+    "ShowCommandsList",
+    "TurnOnTheLights",
+    "TurnOffTheLights"
   ],
   "entities": [
     {
@@ -652,6 +654,51 @@
     {
       "text": "Options",
       "intentName": "ShowCommandsList",
+      "entityLabels": []
+    },
+    {
+      "text": "turn on the lights",
+      "intentName": "TurnOnTheLights",
+      "entityLabels": []
+    },
+    {
+      "text": "it is so dark",
+      "intentName": "TurnOnTheLights",
+      "entityLabels": []
+    },
+    {
+      "text": "can you give some light",
+      "intentName": "TurnOnTheLights",
+      "entityLabels": []
+    },
+    {
+      "text": "put the lights on",
+      "intentName": "TurnOnTheLights",
+      "entityLabels": []
+    },
+    {
+      "text": "connect the lights",
+      "intentName": "TurnOnTheLights",
+      "entityLabels": []
+    },
+    {
+      "text": "turn off the lights",
+      "intentName": "TurnOffTheLights",
+      "entityLabels": []
+    },
+    {
+      "text": "put the lights off",
+      "intentName": "TurnOffTheLights",
+      "entityLabels": []
+    },
+    {
+      "text": "remove the lights",
+      "intentName": "TurnOffTheLights",
+      "entityLabels": []
+    },
+    {
+      "text": "disconnect the lights",
+      "intentName": "TurnOffTheLights",
       "entityLabels": []
     }
   ]
