@@ -1,4 +1,4 @@
-from typing import Union
+from typing import Union, Optional
 
 from pydantic import BaseModel
 
@@ -14,3 +14,4 @@ class IntentResponse(BaseModel):
     entities: list[ExtractedEntity]
     similarity: float
     message: str
+    user_info: Optional[dict]

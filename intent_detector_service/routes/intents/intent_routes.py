@@ -1,8 +1,10 @@
+from fastapi import Depends
 from fastapi_versioning import version  # type: ignore
 
 from intent_detector_service.config import ALLOWED_LANGUAGE_TYPES
 from intent_detector_service.routes.routers import intents
 from intent_detector_service.services.detector_factory import DetectorFactory, ALLOWED_ENGINE_TYPES
+from intent_detector_service.services.oauth import get_current_slack_user
 from intent_detector_service.type_models.request.intent_detection import IntentPayload
 from intent_detector_service.type_models.response.intent_detection import IntentResponse
 
@@ -12,8 +14,13 @@ from intent_detector_service.type_models.response.intent_detection import Intent
 async def detect_intention(
     engine: ALLOWED_ENGINE_TYPES,
     language: ALLOWED_LANGUAGE_TYPES,
-    payload: IntentPayload
+    payload: IntentPayload,
+    current_user: dict = Depends(get_current_slack_user)
 ) -> IntentResponse:
     engine_detector = DetectorFactory.construct_detector(language, engine)
     intention_dict = engine_detector.detect_intention(payload.message, payload.actions)
-    return IntentResponse.parse_obj(intention_dict)
+    intent_res_obj = IntentResponse.parse_obj(intention_dict)
+    user_info_copy = current_user.copy()
+    user_info_copy.pop("hashed_password")
+    intent_res_obj.user_info = user_info_copy
+    return intent_res_obj

@@ -1,7 +1,7 @@
 import os
 from typing import Final, Literal, Optional
 
-ALLOW_ORIGINS: Final[str] = os.environ.get("ALLOW_ORIGINS", ".*")
+ALLOW_ORIGINS: Final[str] = os.environ.get("ALLOW_ORIGINS", ["*"])
 ENGLISH_SPACY_MODEL: Final[str] = os.environ.get("EN_SPACY_MODEL", "en_core_web_lg")
 SPANISH_SPACY_MODEL: Final[str] = os.environ.get("ES_SPACY_MODEL", "es_core_news_lg")
 

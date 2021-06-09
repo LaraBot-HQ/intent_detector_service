@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 from typing import Optional
 
-from fastapi import Depends, FastAPI, HTTPException, status
+from fastapi import Depends, FastAPI, HTTPException, status, Header
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from jose import JWTError, jwt
 from passlib.context import CryptContext
@@ -133,3 +133,16 @@ async def get_current_active_user(current_user: User = Depends(get_current_user)
     if current_user.disabled:
         raise HTTPException(status_code=400, detail="Inactive user")
     return current_user
+
+
+async def get_current_slack_user(slack_user_id: str = Header(None)):
+    try:
+        users = [
+            user for user in fake_users_db.values()
+            if user.get("slack_data", {}).get("user_id") == slack_user_id
+        ]
+
+        if users:
+            return users[0]
+    except Exception:
+        return None
