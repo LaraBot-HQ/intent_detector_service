@@ -13,7 +13,7 @@
     },
     {
       "intent_id": "ShowMovies",
-      "action": "show me some scary movies",
+      "action": "show me some whatever movies",
       "matchers": []
     }
   ]
