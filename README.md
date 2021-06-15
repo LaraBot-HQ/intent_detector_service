@@ -1,7 +1,4 @@
 # Intent detector service
-
----
-
 The **Intent detector service** module is the central module of the system and in which part of the current system 
 architecture differs from other traditional chatbot architectures. This module abstracts the process of identifying 
 intentions in the *controllers* (in a typical bot architecture) for making a process of formalizing the message using 
@@ -12,8 +9,6 @@ This service was implemented as a proof of concept to understand the needs and p
 subsequent implementation.
 
 ## Structure
-
----
 In this case, this microservice was created with **FastAPI** to simplify its construction and not depend on databases
 or other resources and thus only specify an API. This proof-of-concept service uses a local engine along with a Luis.ai
 implementation to obtain intents (and easy identification of entities). The local engine uses a Word2Vec model 
@@ -58,8 +53,6 @@ poetry run scripts/env.sh uvicorn intent_detector_service.app:app --host 0.0.0.0
 docker version but for local testing you will need to do it manually.*
 
 # Example
-
----
 The followed is an example for testing the `api/v1/intents/detect` using the **local engine** with the **english** 
 language:
 
@@ -131,8 +124,6 @@ Swagger view:
 ![image](repo_content/static/intents_detect_response.png)
 
 ## Cognitive services
-
----
 ### Luis.ai
 For this first version the service implements `luis.ai` cognitive service. In case you want to implement you own service
 you must create a new `luis.ai` instance and train it with you own data, an example of this can be found in the
