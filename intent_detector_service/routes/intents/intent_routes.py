@@ -14,13 +14,9 @@ from intent_detector_service.type_models.response.intent_detection import Intent
 async def detect_intention(
     engine: ALLOWED_ENGINE_TYPES,
     language: ALLOWED_LANGUAGE_TYPES,
-    payload: IntentPayload,
-    current_user: dict = Depends(get_current_slack_user)
+    payload: IntentPayload
 ) -> IntentResponse:
     engine_detector = DetectorFactory.construct_detector(language, engine)
     intention_dict = engine_detector.detect_intention(payload.message, payload.actions)
     intent_res_obj = IntentResponse.parse_obj(intention_dict)
-    user_info_copy = current_user.copy()
-    user_info_copy.pop("hashed_password")
-    intent_res_obj.user_info = user_info_copy
     return intent_res_obj
